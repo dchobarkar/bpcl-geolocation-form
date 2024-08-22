@@ -10,21 +10,34 @@ export default function Home() {
   const handleImageChange = (event: {
     target: { files: Iterable<never> | ArrayLike<never> };
   }) => {
-    setImages(Array.from(event.target.files));
+    setImages(Array.from(event.target.files)); // Update to properly handle file inputs
   };
 
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
+
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.getCurrentPosition(async (position) => {
         const location = `${position.coords.latitude},${position.coords.longitude}`;
         setGeolocation(location);
-        // For now, just log the form data
-        console.log({
-          employeeName,
-          geolocation: location,
-          images,
+
+        // Create form data
+        const formData = new FormData();
+        formData.append("employeeName", employeeName);
+        formData.append("geolocation", location);
+        images.forEach((image) => formData.append("images", image));
+
+        // Send data to API
+        const res = await fetch("/api/submit", {
+          method: "POST",
+          body: formData,
         });
+
+        if (res.ok) {
+          alert("Form submitted successfully");
+        } else {
+          alert("Failed to submit form");
+        }
       });
     }
   };
@@ -52,7 +65,6 @@ export default function Home() {
             <option value="Employee 2" className="text-gray-900">
               Employee 2
             </option>
-            {/* Add more employee options as needed */}
           </select>
         </div>
 
