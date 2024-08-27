@@ -1,3 +1,8 @@
+import AWS from "aws-sdk";
+import { v4 as uuidv4 } from "uuid";
+
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
+
 export async function POST(req) {
   try {
     // Parse the incoming FormData
@@ -6,6 +11,23 @@ export async function POST(req) {
     // Extract the fields
     const employeeName = formData.get("employeeName");
     const geolocation = formData.get("geolocation");
+
+    // Generate a unique ID for this submission
+    const id = uuidv4();
+
+    // Define the parameters for DynamoDB
+    const dbParams = {
+      TableName: process.env.DYNAMODB_TABLE_NAME,
+      Item: {
+        id, // Primary key
+        employeeName,
+        geolocation,
+        submittedAt: new Date().toISOString(),
+      },
+    };
+
+    // Store the data in DynamoDB
+    await dynamoDB.put(dbParams).promise();
 
     // Extract the uploaded files
     const files = formData.getAll("images");
