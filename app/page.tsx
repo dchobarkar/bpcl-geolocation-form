@@ -1,13 +1,11 @@
 import Link from "next/link";
 
+import Header from "./ui/header";
+
 export default function LandingPage() {
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-100">
-      <header className="w-full bg-blue-500 py-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-white">
-          BPCL Geolocation Form
-        </h1>
-      </header>
+      <Header title="BPCL Geolocation Form" />
 
       <section className="w-full max-w-3xl mt-10 p-6 bg-white shadow-lg rounded-lg">
         <h2 className="text-2xl font-semibold text-center mb-4 text-blue-600">
@@ -32,12 +30,6 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
-
-      <footer className="w-full mt-auto bg-gray-800 py-4">
-        <p className="text-center text-white text-sm">
-          &copy; {new Date().getFullYear()} BPCL Geolocation Project
-        </p>
-      </footer>
     </div>
   );
 }
