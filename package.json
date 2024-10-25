@@ -1,5 +1,5 @@
 {
-  "name": "webform-with-location-tracker",
+  "name": "bpcl-geolocation-form",
   "version": "0.1.0",
   "private": true,
   "scripts": {
