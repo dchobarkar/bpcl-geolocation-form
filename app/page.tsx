@@ -15,7 +15,7 @@ export default function LandingPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {formLinks.map((form, index) => (
-            <Link href={`/form/${form.path}`} key={index}>
+            <Link href={`/forms/${form.path}`} key={index}>
               <div className="flex items-center justify-center p-4 bg-blue-100 text-blue-700 font-medium rounded-lg shadow hover:bg-blue-200 transition-colors duration-200 cursor-pointer">
                 {form.name}
               </div>
