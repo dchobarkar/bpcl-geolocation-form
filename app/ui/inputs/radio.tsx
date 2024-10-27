@@ -6,10 +6,10 @@ const RadioInput = ({
   options: { value: string; label: string }[];
 }) => {
   return (
-    <div className="flex mb-4">
-      <legend className="mr-2">{label}:</legend>
+    <fieldset className="flex flex-col mb-4">
+      <legend className="mb-2 font-medium">{label}:</legend>
 
-      <div className="flex items-center space-x-4">
+      <div className="grid grid-cols-2 gap-2 sm:flex sm:space-x-4">
         {options.map((option) => (
           <div key={option.value} className="flex items-center">
             <input
@@ -17,13 +17,13 @@ const RadioInput = ({
               type="radio"
               name={label}
               value={option.value}
-              className="mr-1"
+              className="mr-2"
             />
             <label htmlFor={option.value}>{option.label}</label>
           </div>
         ))}
       </div>
-    </div>
+    </fieldset>
   );
 };
 

@@ -1,9 +1,8 @@
-import { typeOfTlp } from "@/app/lib/constant-data";
 import RadioInput from "../inputs/radio";
 
-const TLPForm = () => {
+const WarningBoardForm = () => {
   return (
-    <form className="max-w-lg mx-auto mt-4 p-6 bg-white rounded-lg shadow-md text-sm font-medium">
+    <form className="max-w-lg mx-2 md:mx-auto mt-4 p-6 bg-white rounded-lg shadow-md text-sm font-medium">
       <div className="flex flex-col space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center">
           <label
@@ -24,30 +23,27 @@ const TLPForm = () => {
           />
         </div>
 
-        <div className="flex flex-col sm:flex-row sm:items-center">
-          <label
-            htmlFor="typeOfTlp"
-            className="sm:mr-2 mb-1 sm:mb-0 text-sm font-medium"
-          >
-            Type of TLP
-          </label>
+        <RadioInput
+          label="Status"
+          options={[
+            { value: "ok", label: "OK" },
+            { value: "notOk", label: "Not OK" },
+          ]}
+        />
 
-          <select
-            required
-            id="typeOfTlp"
-            name="typeOfTlp"
-            className="w-full p-2 border rounded-md"
-          >
-            {typeOfTlp.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.name}
-              </option>
-            ))}
-          </select>
+        <div className="mt-2">
+          <label>Additional Information:</label>
+
+          <input
+            type="text"
+            name="additionalInfo"
+            className="w-full p-2 border rounded-md mt-1"
+            placeholder="Provide details"
+          />
         </div>
 
         <RadioInput
-          label="Door Condition"
+          label="Condition"
           options={[
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
@@ -74,21 +70,25 @@ const TLPForm = () => {
         <RadioInput
           label="Details Status"
           options={[
-            { value: "available", label: "Available" },
+            { value: "shredded", label: "Shredded" },
+            { value: "ok", label: "OK" },
             { value: "notAvailable", label: "Not Available" },
           ]}
         />
 
-        <RadioInput
-          label="Circuit Diagram"
-          options={[
-            { value: "available", label: "Available" },
-            { value: "notAvailable", label: "Not Available" },
-          ]}
-        />
+        <div className="mt-2">
+          <label>Details:</label>
+
+          <input
+            type="text"
+            name="detailsAdditionalInfo"
+            className="w-full p-2 border rounded-md mt-1"
+            placeholder="Provide details"
+          />
+        </div>
       </div>
     </form>
   );
 };
 
-export default TLPForm;
+export default WarningBoardForm;
