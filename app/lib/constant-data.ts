@@ -1,3 +1,14 @@
+const officerName = [
+  { name: "Officer A", value: "officera" },
+  { name: "Officer B", value: "officerb" },
+  { name: "Officer C", value: "officerc" },
+  { name: "Officer D", value: "officerd" },
+  { name: "Officer E", value: "officere" },
+  { name: "Officer F", value: "officerf" },
+  { name: "Officer G", value: "officerg" },
+  { name: "Officer H", value: "officerh" },
+];
+
 const formLinks = [
   { name: "TLP", path: "tlp" },
   { name: "Warning Board", path: "warning-board" },
@@ -21,4 +32,4 @@ const typeOfTlp = [
   { name: "Type 10", value: "Type 10" },
 ];
 
-export { formLinks, typeOfTlp };
+export { officerName, formLinks, typeOfTlp };

@@ -1,12 +1,10 @@
 import Link from "next/link";
-
-import Header from "./ui/header";
-import { formLinks } from "./lib/constant-data";
+import { formLinks } from "../lib/constant-data";
 
 export default function LandingPage() {
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-100">
-      <Header title="BPCL Geolocation Form" />
+      {/* <Header title="BPCL Geolocation Form" /> */}
 
       <section className="w-full max-w-3xl mt-10 p-6 bg-white shadow-lg rounded-lg">
         <h2 className="text-2xl font-semibold text-center mb-4 text-blue-600">
