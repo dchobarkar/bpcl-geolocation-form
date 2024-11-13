@@ -1,4 +1,4 @@
-const officerName = [
+const officerNames = [
   { name: "Officer A", value: "officera" },
   { name: "Officer B", value: "officerb" },
   { name: "Officer C", value: "officerc" },
@@ -19,7 +19,7 @@ const formLinks = [
   { name: "ROU Marker", path: "rou-marker" },
 ];
 
-const typeOfTlp = [
+const typeOfTlps = [
   { name: "Type 1", value: "Type 1" },
   { name: "Type 2", value: "Type 2" },
   { name: "Type 3", value: "Type 3" },
@@ -32,4 +32,4 @@ const typeOfTlp = [
   { name: "Type 10", value: "Type 10" },
 ];
 
-export { officerName, formLinks, typeOfTlp };
+export { officerNames, formLinks, typeOfTlps };

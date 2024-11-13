@@ -1,9 +1,9 @@
-import { typeOfTlp } from "@/app/lib/constant-data";
+import { typeOfTlps } from "@/app/lib/constant-data";
 import RadioInput from "../inputs/radio";
 
 const TLPForm = () => {
   return (
-    <form className="max-w-lg mx-auto mt-4 p-6 bg-white rounded-lg shadow-md text-sm font-medium">
+    <form className="max-w-lg mx-2 md:mx-auto mt-4 p-6 font-medium bg-white rounded-lg shadow-md text-sm">
       <div className="flex flex-col space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center">
           <label
@@ -37,10 +37,14 @@ const TLPForm = () => {
             id="typeOfTlp"
             name="typeOfTlp"
             className="w-full p-2 border rounded-md"
+            defaultValue=""
           >
-            {typeOfTlp.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.name}
+            <option className="text-gray-500" value="" disabled>
+              Please Choose
+            </option>
+            {typeOfTlps.map((tlp) => (
+              <option key={tlp.value} value={tlp.value}>
+                {tlp.name}
               </option>
             ))}
           </select>

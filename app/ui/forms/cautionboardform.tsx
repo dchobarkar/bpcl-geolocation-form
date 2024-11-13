@@ -2,7 +2,7 @@ import RadioInput from "../inputs/radio";
 
 const CautionBoardForm = () => {
   return (
-    <form className="max-w-lg mx-2 md:mx-auto mt-4 p-6 bg-white rounded-lg shadow-md text-sm font-medium">
+    <form className="max-w-lg mx-2 md:mx-auto mt-4 p-6 font-medium bg-white rounded-lg shadow-md text-sm">
       <div className="flex flex-col space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center">
           <label
@@ -31,12 +31,19 @@ const CautionBoardForm = () => {
           ]}
         />
 
+        {/* If Status not ok, then additional information should be shown */}
         <div className="mt-2">
-          <label>Additional Information:</label>
+          <label
+            htmlFor="statusInfo"
+            className="sm:mr-2 mb-1 sm:mb-0 text-sm font-medium"
+          >
+            Additional Information:
+          </label>
 
           <input
+            id="statusInfo"
+            name="statusInfo"
             type="text"
-            name="additionalInfo"
             className="w-full p-2 border rounded-md mt-1"
             placeholder="Provide details"
           />
@@ -76,12 +83,19 @@ const CautionBoardForm = () => {
           ]}
         />
 
+        {/* If Details Status not ok, then additional information should be shown */}
         <div className="mt-2">
-          <label>Details:</label>
+          <label
+            htmlFor="detailsInfo"
+            className="sm:mr-2 mb-1 sm:mb-0 text-sm font-medium"
+          >
+            Additional Information:
+          </label>
 
           <input
+            id="detailsInfo"
+            name="detailsInfo"
             type="text"
-            name="detailsAdditionalInfo"
             className="w-full p-2 border rounded-md mt-1"
             placeholder="Provide details"
           />

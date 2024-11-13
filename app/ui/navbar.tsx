@@ -7,7 +7,7 @@ const Navbar = () => {
         href="/"
         className="bg-white text-blue-500 py-1 px-3 rounded-md font-medium hover:bg-gray-200"
       >
-        BPCL Geolocation
+        BPCL
       </Link>
     </nav>
   );
