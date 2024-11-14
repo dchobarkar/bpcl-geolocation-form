@@ -1,8 +1,10 @@
 const RadioInput = ({
   label,
+  labelValue,
   options,
 }: {
   label: string;
+  labelValue: string;
   options: { value: string; label: string }[];
 }) => {
   return (
@@ -15,7 +17,7 @@ const RadioInput = ({
             <input
               id={option.value}
               type="radio"
-              name={label}
+              name={labelValue}
               value={option.value}
               className="mr-2"
             />

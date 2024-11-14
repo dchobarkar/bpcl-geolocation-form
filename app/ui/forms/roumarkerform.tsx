@@ -25,6 +25,7 @@ const ROUMarkerForm = () => {
 
         <RadioInput
           label="Status"
+          labelValue="status"
           options={[
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
@@ -51,6 +52,7 @@ const ROUMarkerForm = () => {
 
         <RadioInput
           label="Condition"
+          labelValue="condition"
           options={[
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
@@ -59,6 +61,7 @@ const ROUMarkerForm = () => {
 
         <RadioInput
           label="Rusting Condition"
+          labelValue="rustingCondition"
           options={[
             { value: "notRusted", label: "Not Rusted" },
             { value: "minorRusted", label: "Minor Rusted" },
@@ -68,6 +71,7 @@ const ROUMarkerForm = () => {
 
         <RadioInput
           label="Foundation Status"
+          labelValue="foundationStatus"
           options={[
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
@@ -76,6 +80,7 @@ const ROUMarkerForm = () => {
 
         <RadioInput
           label="Details Status"
+          labelValue="detailsStatus"
           options={[
             { value: "shredded", label: "Shredded" },
             { value: "ok", label: "OK" },

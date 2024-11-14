@@ -1,9 +1,15 @@
+"use client";
+
 import { typeOfTlps } from "@/app/lib/constant-data";
 import RadioInput from "../inputs/radio";
+import { createInputTLP } from "@/app/lib/actions";
 
 const TLPForm = () => {
   return (
-    <form className="max-w-lg mx-2 md:mx-auto mt-4 p-6 font-medium bg-white rounded-lg shadow-md text-sm">
+    <form
+      action={createInputTLP}
+      className="max-w-lg mx-2 md:mx-auto mt-4 p-6 font-medium bg-white rounded-lg shadow-md text-sm"
+    >
       <div className="flex flex-col space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center">
           <label
@@ -52,6 +58,7 @@ const TLPForm = () => {
 
         <RadioInput
           label="Door Condition"
+          labelValue="doorCondition"
           options={[
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
@@ -60,6 +67,7 @@ const TLPForm = () => {
 
         <RadioInput
           label="Rusting Condition"
+          labelValue="rustingCondition"
           options={[
             { value: "notRusted", label: "Not Rusted" },
             { value: "minorRusted", label: "Minor Rusted" },
@@ -69,6 +77,7 @@ const TLPForm = () => {
 
         <RadioInput
           label="Foundation Status"
+          labelValue="foundationStatus"
           options={[
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
@@ -77,6 +86,7 @@ const TLPForm = () => {
 
         <RadioInput
           label="Details Status"
+          labelValue="detailsStatus"
           options={[
             { value: "available", label: "Available" },
             { value: "notAvailable", label: "Not Available" },
@@ -85,6 +95,7 @@ const TLPForm = () => {
 
         <RadioInput
           label="Circuit Diagram"
+          labelValue="circuitDiagram"
           options={[
             { value: "available", label: "Available" },
             { value: "notAvailable", label: "Not Available" },
