@@ -1,13 +1,13 @@
 "use client";
 
 import { typeOfTlps } from "@/app/lib/constant-data";
+import { createTLPInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
-import { createInputTLP } from "@/app/lib/actions";
 
 const TLPForm = () => {
   return (
     <form
-      action={createInputTLP}
+      action={createTLPInput}
       className="max-w-lg mx-2 md:mx-auto mt-4 p-6 font-medium bg-white rounded-lg shadow-md text-sm"
     >
       <div className="flex flex-col space-y-4">

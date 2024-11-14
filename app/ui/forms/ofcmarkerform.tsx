@@ -1,8 +1,12 @@
+import { createOFCMarkerInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const OFCMarkerForm = () => {
   return (
-    <form className="max-w-lg mx-2 md:mx-auto mt-4 p-6 font-medium bg-white rounded-lg shadow-md text-sm">
+    <form
+      action={createOFCMarkerInput}
+      className="max-w-lg mx-2 md:mx-auto mt-4 p-6 font-medium bg-white rounded-lg shadow-md text-sm"
+    >
       <div className="flex flex-col space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center">
           <label
