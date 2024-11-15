@@ -9,17 +9,21 @@ import {
   TurningMarkerFormSchema,
   WarningBoardFormSchema,
 } from "./formScema";
+import {
+  CautionBoardFormState,
+  KMPostFormState,
+  OFCMarkerFormState,
+  ROUMarkerFormState,
+  TLPFormState,
+  TurningMarkerFormState,
+  WarningBoardFormState,
+} from "./formState";
 
-export async function createTLPInput(formData: FormData) {
-  const {
-    ch,
-    typeOfTlp,
-    doorCondition,
-    rustingCondition,
-    foundationStatus,
-    detailsStatus,
-    circuitDiagram,
-  } = TLPFormSchema.parse({
+export async function createTLPInput(
+  prevState: TLPFormState,
+  formData: FormData
+) {
+  const validatedFields = TLPFormSchema.safeParse({
     ch: formData.get("ch"),
     typeOfTlp: formData.get("typeOfTlp"),
     doorCondition: formData.get("doorCondition"),
@@ -28,7 +32,21 @@ export async function createTLPInput(formData: FormData) {
     detailsStatus: formData.get("detailsStatus"),
     circuitDiagram: formData.get("circuitDiagram"),
   });
+  if (!validatedFields.success)
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to create entry.",
+    };
 
+  const {
+    ch,
+    typeOfTlp,
+    doorCondition,
+    rustingCondition,
+    foundationStatus,
+    detailsStatus,
+    circuitDiagram,
+  } = validatedFields.data;
   console.log(
     ch,
     typeOfTlp,
@@ -42,19 +60,11 @@ export async function createTLPInput(formData: FormData) {
   return formData;
 }
 
-export async function createWarningBoardInput(formData: FormData) {
-  const {
-    ch,
-    status,
-    statusInfo,
-    condition,
-    rustingCondition,
-    foundationStatus,
-    typeOfWarningBoard,
-    details,
-    detailsStatus,
-    detailsInfo,
-  } = WarningBoardFormSchema.parse({
+export async function createWarningBoardInput(
+  prevState: WarningBoardFormState,
+  formData: FormData
+) {
+  const validatedFields = WarningBoardFormSchema.safeParse({
     ch: formData.get("ch"),
     status: formData.get("status"),
     statusInfo: formData.get("statusInfo"),
@@ -66,7 +76,24 @@ export async function createWarningBoardInput(formData: FormData) {
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
   });
+  if (!validatedFields.success)
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to create entry.",
+    };
 
+  const {
+    ch,
+    status,
+    statusInfo,
+    condition,
+    rustingCondition,
+    foundationStatus,
+    typeOfWarningBoard,
+    details,
+    detailsStatus,
+    detailsInfo,
+  } = validatedFields.data;
   console.log(
     ch,
     status,
@@ -79,20 +106,15 @@ export async function createWarningBoardInput(formData: FormData) {
     detailsStatus,
     detailsInfo
   );
+
   return formData;
 }
 
-export async function createKMPostInput(formData: FormData) {
-  const {
-    ch,
-    status,
-    statusInfo,
-    condition,
-    rustingCondition,
-    foundationStatus,
-    detailsStatus,
-    detailsInfo,
-  } = KMPostFormSchema.parse({
+export async function createKMPostInput(
+  prevState: KMPostFormState,
+  formData: FormData
+) {
+  const validatedFields = KMPostFormSchema.safeParse({
     ch: formData.get("ch"),
     status: formData.get("status"),
     statusInfo: formData.get("statusInfo"),
@@ -102,7 +124,22 @@ export async function createKMPostInput(formData: FormData) {
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
   });
+  if (!validatedFields.success)
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to create entry.",
+    };
 
+  const {
+    ch,
+    status,
+    statusInfo,
+    condition,
+    rustingCondition,
+    foundationStatus,
+    detailsStatus,
+    detailsInfo,
+  } = validatedFields.data;
   console.log(
     ch,
     status,
@@ -113,20 +150,15 @@ export async function createKMPostInput(formData: FormData) {
     detailsStatus,
     detailsInfo
   );
+
   return formData;
 }
 
-export async function createOFCMarkerInput(formData: FormData) {
-  const {
-    ch,
-    status,
-    statusInfo,
-    condition,
-    rustingCondition,
-    foundationStatus,
-    detailsStatus,
-    detailsInfo,
-  } = OFCMarkerFormSchema.parse({
+export async function createOFCMarkerInput(
+  prevState: OFCMarkerFormState,
+  formData: FormData
+) {
+  const validatedFields = OFCMarkerFormSchema.safeParse({
     ch: formData.get("ch"),
     status: formData.get("status"),
     statusInfo: formData.get("statusInfo"),
@@ -136,7 +168,22 @@ export async function createOFCMarkerInput(formData: FormData) {
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
   });
+  if (!validatedFields.success)
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to create entry.",
+    };
 
+  const {
+    ch,
+    status,
+    statusInfo,
+    condition,
+    rustingCondition,
+    foundationStatus,
+    detailsStatus,
+    detailsInfo,
+  } = validatedFields.data;
   console.log(
     ch,
     status,
@@ -147,20 +194,15 @@ export async function createOFCMarkerInput(formData: FormData) {
     detailsStatus,
     detailsInfo
   );
+
   return formData;
 }
 
-export async function createTurningMarkerInput(formData: FormData) {
-  const {
-    ch,
-    status,
-    statusInfo,
-    condition,
-    rustingCondition,
-    foundationStatus,
-    detailsStatus,
-    detailsInfo,
-  } = TurningMarkerFormSchema.parse({
+export async function createTurningMarkerInput(
+  prevState: TurningMarkerFormState,
+  formData: FormData
+) {
+  const validatedFields = TurningMarkerFormSchema.safeParse({
     ch: formData.get("ch"),
     status: formData.get("status"),
     statusInfo: formData.get("statusInfo"),
@@ -170,7 +212,22 @@ export async function createTurningMarkerInput(formData: FormData) {
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
   });
+  if (!validatedFields.success)
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to create entry.",
+    };
 
+  const {
+    ch,
+    status,
+    statusInfo,
+    condition,
+    rustingCondition,
+    foundationStatus,
+    detailsStatus,
+    detailsInfo,
+  } = validatedFields.data;
   console.log(
     ch,
     status,
@@ -181,20 +238,15 @@ export async function createTurningMarkerInput(formData: FormData) {
     detailsStatus,
     detailsInfo
   );
+
   return formData;
 }
 
-export async function createCautionBoardInput(formData: FormData) {
-  const {
-    ch,
-    status,
-    statusInfo,
-    condition,
-    rustingCondition,
-    foundationStatus,
-    detailsStatus,
-    detailsInfo,
-  } = CautionBoardFormSchema.parse({
+export async function createCautionBoardInput(
+  prevState: CautionBoardFormState,
+  formData: FormData
+) {
+  const validatedFields = CautionBoardFormSchema.safeParse({
     ch: formData.get("ch"),
     status: formData.get("status"),
     statusInfo: formData.get("statusInfo"),
@@ -204,7 +256,22 @@ export async function createCautionBoardInput(formData: FormData) {
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
   });
+  if (!validatedFields.success)
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to create entry.",
+    };
 
+  const {
+    ch,
+    status,
+    statusInfo,
+    condition,
+    rustingCondition,
+    foundationStatus,
+    detailsStatus,
+    detailsInfo,
+  } = validatedFields.data;
   console.log(
     ch,
     status,
@@ -215,20 +282,15 @@ export async function createCautionBoardInput(formData: FormData) {
     detailsStatus,
     detailsInfo
   );
+
   return formData;
 }
 
-export async function createROUMarkerInput(formData: any) {
-  const {
-    ch,
-    status,
-    statusInfo,
-    condition,
-    rustingCondition,
-    foundationStatus,
-    detailsStatus,
-    detailsInfo,
-  } = ROUMarkerFormSchema.parse({
+export async function createROUMarkerInput(
+  prevState: ROUMarkerFormState,
+  formData: FormData
+) {
+  const validatedFields = ROUMarkerFormSchema.safeParse({
     ch: formData.get("ch"),
     status: formData.get("status"),
     statusInfo: formData.get("statusInfo"),
@@ -238,7 +300,22 @@ export async function createROUMarkerInput(formData: any) {
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
   });
+  if (!validatedFields.success)
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to create entry.",
+    };
 
+  const {
+    ch,
+    status,
+    statusInfo,
+    condition,
+    rustingCondition,
+    foundationStatus,
+    detailsStatus,
+    detailsInfo,
+  } = validatedFields.data;
   console.log(
     ch,
     status,
@@ -249,5 +326,6 @@ export async function createROUMarkerInput(formData: any) {
     detailsStatus,
     detailsInfo
   );
+
   return formData;
 }

@@ -1,84 +1,171 @@
 import { z } from "zod";
 
 const TLPFormSchema = z.object({
-  ch: z.coerce.number(),
-  typeOfTlp: z.string(),
-  doorCondition: z.enum(["ok", "notOk"]),
-  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"]),
-  foundationStatus: z.enum(["ok", "notOk"]),
-  detailsStatus: z.enum(["available", "notAvailable"]),
-  circuitDiagram: z.enum(["available", "notAvailable"]),
+  ch: z.coerce.number({
+    invalid_type_error: "Please enter the ch value.",
+  }),
+  typeOfTlp: z.string({
+    invalid_type_error: "Please select type of TLP",
+  }),
+  doorCondition: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  foundationStatus: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  detailsStatus: z.enum(["available", "notAvailable"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  circuitDiagram: z.enum(["available", "notAvailable"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
 });
 
 const WarningBoardFormSchema = z.object({
-  ch: z.coerce.number(),
-  status: z.enum(["ok", "notOk"]),
+  ch: z.coerce.number({
+    invalid_type_error: "Please enter the ch value.",
+  }),
+  status: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   statusInfo: z.string(),
-  condition: z.enum(["ok", "notOk"]),
-  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"]),
-  foundationStatus: z.enum(["ok", "notOk"]),
-  typeOfWarningBoard: z.enum([
-    "roadCrossing",
-    "riverCrossing",
-    "railwayCrossing",
-  ]),
+  condition: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  foundationStatus: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  typeOfWarningBoard: z.enum(
+    ["roadCrossing", "riverCrossing", "railwayCrossing"],
+    {
+      invalid_type_error: "Please select an appropriate option.",
+    }
+  ),
   details: z.string(),
-  detailsStatus: z.enum(["shredded", "ok", "notAvailable"]),
+  detailsStatus: z.enum(["shredded", "ok", "notAvailable"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   detailsInfo: z.string(),
 });
 
 const KMPostFormSchema = z.object({
-  ch: z.coerce.number(),
-  status: z.enum(["ok", "notOk"]),
+  ch: z.coerce.number({
+    invalid_type_error: "Please enter the ch value.",
+  }),
+  status: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   statusInfo: z.string(),
-  condition: z.enum(["ok", "notOk"]),
-  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"]),
-  foundationStatus: z.enum(["ok", "notOk"]),
-  detailsStatus: z.enum(["shredded", "ok", "notAvailable"]),
+  condition: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  foundationStatus: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  detailsStatus: z.enum(["shredded", "ok", "notAvailable"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   detailsInfo: z.string(),
 });
 
 const OFCMarkerFormSchema = z.object({
-  ch: z.coerce.number(),
-  status: z.enum(["ok", "notOk"]),
+  ch: z.coerce.number({
+    invalid_type_error: "Please enter the ch value.",
+  }),
+  status: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   statusInfo: z.string(),
-  condition: z.enum(["ok", "notOk"]),
-  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"]),
-  foundationStatus: z.enum(["ok", "notOk"]),
-  detailsStatus: z.enum(["shredded", "ok", "notAvailable"]),
+  condition: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  foundationStatus: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  detailsStatus: z.enum(["shredded", "ok", "notAvailable"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   detailsInfo: z.string(),
 });
 
 const TurningMarkerFormSchema = z.object({
-  ch: z.coerce.number(),
-  status: z.enum(["ok", "notOk"]),
+  ch: z.coerce.number({
+    invalid_type_error: "Please enter the ch value.",
+  }),
+  status: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   statusInfo: z.string(),
-  condition: z.enum(["ok", "notOk"]),
-  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"]),
-  foundationStatus: z.enum(["ok", "notOk"]),
-  detailsStatus: z.enum(["shredded", "ok", "notAvailable"]),
+  condition: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  foundationStatus: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  detailsStatus: z.enum(["shredded", "ok", "notAvailable"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   detailsInfo: z.string(),
 });
 
 const CautionBoardFormSchema = z.object({
-  ch: z.coerce.number(),
-  status: z.enum(["ok", "notOk"]),
+  ch: z.coerce.number({
+    invalid_type_error: "Please enter the ch value.",
+  }),
+  status: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   statusInfo: z.string(),
-  condition: z.enum(["ok", "notOk"]),
-  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"]),
-  foundationStatus: z.enum(["ok", "notOk"]),
-  detailsStatus: z.enum(["shredded", "ok", "notAvailable"]),
+  condition: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  foundationStatus: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  detailsStatus: z.enum(["shredded", "ok", "notAvailable"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   detailsInfo: z.string(),
 });
 
 const ROUMarkerFormSchema = z.object({
-  ch: z.coerce.number(),
-  status: z.enum(["ok", "notOk"]),
+  ch: z.coerce.number({
+    invalid_type_error: "Please enter the ch value.",
+  }),
+  status: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   statusInfo: z.string(),
-  condition: z.enum(["ok", "notOk"]),
-  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"]),
-  foundationStatus: z.enum(["ok", "notOk"]),
-  detailsStatus: z.enum(["shredded", "ok", "notAvailable"]),
+  condition: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  rustingCondition: z.enum(["notRusted", "minorRusted", "heavyRusted"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  foundationStatus: z.enum(["ok", "notOk"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
+  detailsStatus: z.enum(["shredded", "ok", "notAvailable"], {
+    invalid_type_error: "Please select an appropriate option.",
+  }),
   detailsInfo: z.string(),
 });
 

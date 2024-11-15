@@ -1,10 +1,18 @@
+import { useActionState } from "react";
+
 import { createWarningBoardInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const WarningBoardForm = () => {
+  const initialState: any = { message: null, errors: {} };
+  const [state, formAction] = useActionState(
+    createWarningBoardInput,
+    initialState
+  );
+
   return (
     <form
-      action={createWarningBoardInput}
+      action={formAction}
       className="max-w-lg mx-2 md:mx-auto mt-4 p-6 font-medium bg-white rounded-lg shadow-md text-sm"
     >
       <div className="flex flex-col space-y-4">
@@ -24,16 +32,27 @@ const WarningBoardForm = () => {
             step="0.001"
             className="w-full p-2 border rounded-md"
             placeholder="Enter CH value"
+            aria-describedby="ch-error"
           />
+        </div>
+        <div id="ch-error" aria-live="polite" aria-atomic="true">
+          {state.errors?.ch &&
+            state.errors.ch.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
         </div>
 
         <RadioInput
           label="Status"
           labelValue="status"
+          ariaDescribedBy="status-error"
           options={[
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
           ]}
+          errors={state.errors && state.errors?.status}
         />
 
         {/* If Status not ok, then additional information should be shown */}
@@ -51,45 +70,62 @@ const WarningBoardForm = () => {
             type="text"
             className="w-full p-2 border rounded-md mt-1"
             placeholder="Provide details"
+            aria-describedby="statusInfo-error"
           />
+        </div>
+        <div id="statusInfo-error" aria-live="polite" aria-atomic="true">
+          {state.errors?.statusInfo &&
+            state.errors.statusInfo.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
         </div>
 
         <RadioInput
           label="Condition"
           labelValue="condition"
+          ariaDescribedBy="condition-error"
           options={[
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
           ]}
+          errors={state.errors && state.errors?.condition}
         />
 
         <RadioInput
           label="Rusting Condition"
           labelValue="rustingCondition"
+          ariaDescribedBy="condition-error"
           options={[
             { value: "notRusted", label: "Not Rusted" },
             { value: "minorRusted", label: "Minor Rusted" },
             { value: "heavyRusted", label: "Heavy Rusted" },
           ]}
+          errors={state.errors && state.errors?.rustingCondition}
         />
 
         <RadioInput
           label="Foundation Status"
           labelValue="foundationStatus"
+          ariaDescribedBy="foundationStatus-error"
           options={[
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
           ]}
+          errors={state.errors && state.errors?.foundationStatus}
         />
 
         <RadioInput
           label="Type of Warning Board"
           labelValue="typeOfWarningBoard"
+          ariaDescribedBy="typeOfWarningBoard-error"
           options={[
             { value: "roadCrossing", label: "Road Crossing" },
             { value: "riverCrossing", label: "River Crossing" },
             { value: "railwayCrossing", label: "Railway Crossing" },
           ]}
+          errors={state.errors && state.errors?.typeOfWarningBoard}
         />
 
         <div className="mt-2">
@@ -105,17 +141,28 @@ const WarningBoardForm = () => {
             name="details"
             type="text"
             className="w-full p-2 border rounded-md mt-1"
+            aria-describedby="details-error"
           />
+        </div>
+        <div id="details-error" aria-live="polite" aria-atomic="true">
+          {state.errors?.details &&
+            state.errors.details.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
         </div>
 
         <RadioInput
           label="Details Status"
           labelValue="detailsStatus"
+          ariaDescribedBy="detailsStatus-error"
           options={[
             { value: "shredded", label: "Shredded" },
             { value: "ok", label: "OK" },
             { value: "notAvailable", label: "Not Available" },
           ]}
+          errors={state.errors && state.errors?.detailsStatus}
         />
 
         {/* If Details Status not ok, then additional information should be shown */}
@@ -133,7 +180,16 @@ const WarningBoardForm = () => {
             type="text"
             className="w-full p-2 border rounded-md mt-1"
             placeholder="Provide details"
+            aria-describedby="detailsInfo-error"
           />
+        </div>
+        <div id="detailsInfo-error" aria-live="polite" aria-atomic="true">
+          {state.errors?.detailsInfo &&
+            state.errors.detailsInfo.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
         </div>
 
         <div className="mt-2 flex justify-end">
