@@ -1,16 +1,27 @@
 "use client";
 
 import { useFormState } from "react-dom";
+import { notFound, useSearchParams } from "next/navigation";
 
 import { createTurningMarkerInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const TurningMarkerForm = () => {
   const initialState: any = { message: null, errors: {} };
+
+  const searchParams = useSearchParams();
+  const officerName = searchParams.get("officer") || "";
+
+  const createTurningMarkerInputWithOfficer = createTurningMarkerInput.bind(
+    null,
+    officerName
+  );
   const [state, formAction] = useFormState(
-    createTurningMarkerInput,
+    createTurningMarkerInputWithOfficer,
     initialState
   );
+
+  if (officerName === "") return notFound();
 
   return (
     <form

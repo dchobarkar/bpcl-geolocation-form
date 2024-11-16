@@ -1,15 +1,26 @@
 "use client";
 import { useFormState } from "react-dom";
+import { notFound, useSearchParams } from "next/navigation";
 
 import { createCautionBoardInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const CautionBoardForm = () => {
   const initialState: any = { message: null, errors: {} };
+
+  const searchParams = useSearchParams();
+  const officerName = searchParams.get("officer") || "";
+
+  const createCautionBoardInputWithOfficer = createCautionBoardInput.bind(
+    null,
+    officerName
+  );
   const [state, formAction] = useFormState(
-    createCautionBoardInput,
+    createCautionBoardInputWithOfficer,
     initialState
   );
+
+  if (officerName === "") return notFound();
 
   return (
     <form

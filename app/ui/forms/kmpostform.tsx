@@ -1,13 +1,27 @@
 "use client";
 
 import { useFormState } from "react-dom";
+import { notFound, useSearchParams } from "next/navigation";
 
 import { createKMPostInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const KMPostForm = () => {
   const initialState: any = { message: null, errors: {} };
-  const [state, formAction] = useFormState(createKMPostInput, initialState);
+
+  const searchParams = useSearchParams();
+  const officerName = searchParams.get("officer") || "";
+
+  const createKMPostInputWithOfficer = createKMPostInput.bind(
+    null,
+    officerName
+  );
+  const [state, formAction] = useFormState(
+    createKMPostInputWithOfficer,
+    initialState
+  );
+
+  if (officerName === "") return notFound();
 
   return (
     <form

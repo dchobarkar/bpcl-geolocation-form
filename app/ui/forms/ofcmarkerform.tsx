@@ -1,13 +1,27 @@
 "use client";
 
 import { useFormState } from "react-dom";
+import { notFound, useSearchParams } from "next/navigation";
 
 import { createOFCMarkerInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const OFCMarkerForm = () => {
   const initialState: any = { message: null, errors: {} };
-  const [state, formAction] = useFormState(createOFCMarkerInput, initialState);
+
+  const searchParams = useSearchParams();
+  const officerName = searchParams.get("officer") || "";
+
+  const createOFCMarkerInputWithOfficer = createOFCMarkerInput.bind(
+    null,
+    officerName
+  );
+  const [state, formAction] = useFormState(
+    createOFCMarkerInputWithOfficer,
+    initialState
+  );
+
+  if (officerName === "") return notFound();
 
   return (
     <form

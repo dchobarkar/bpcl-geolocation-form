@@ -1,16 +1,27 @@
 "use client";
 
 import { useFormState } from "react-dom";
+import { notFound, useSearchParams } from "next/navigation";
 
 import { createWarningBoardInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const WarningBoardForm = () => {
   const initialState: any = { message: null, errors: {} };
+
+  const searchParams = useSearchParams();
+  const officerName = searchParams.get("officer") || "";
+
+  const createWarningBoardInputWithOfficer = createWarningBoardInput.bind(
+    null,
+    officerName
+  );
   const [state, formAction] = useFormState(
-    createWarningBoardInput,
+    createWarningBoardInputWithOfficer,
     initialState
   );
+
+  if (officerName === "") return notFound();
 
   return (
     <form

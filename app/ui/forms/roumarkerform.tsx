@@ -1,13 +1,27 @@
 "use client";
 
 import { useFormState } from "react-dom";
+import { notFound, useSearchParams } from "next/navigation";
 
 import { createROUMarkerInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const ROUMarkerForm = () => {
   const initialState: any = { message: null, errors: {} };
-  const [state, formAction] = useFormState(createROUMarkerInput, initialState);
+
+  const searchParams = useSearchParams();
+  const officerName = searchParams.get("officer") || "";
+
+  const createROUMarkerInputWithOfficer = createROUMarkerInput.bind(
+    null,
+    officerName
+  );
+  const [state, formAction] = useFormState(
+    createROUMarkerInputWithOfficer,
+    initialState
+  );
+
+  if (officerName === "") return notFound();
 
   return (
     <form

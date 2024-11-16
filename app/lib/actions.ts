@@ -20,6 +20,7 @@ import {
 } from "./formState";
 
 export async function createTLPInput(
+  officerName: string,
   prevState: TLPFormState,
   formData: FormData
 ) {
@@ -48,6 +49,7 @@ export async function createTLPInput(
     circuitDiagram,
   } = validatedFields.data;
   console.log(
+    officerName,
     ch,
     typeOfTlp,
     doorCondition,
@@ -61,6 +63,7 @@ export async function createTLPInput(
 }
 
 export async function createWarningBoardInput(
+  officerName: string,
   prevState: WarningBoardFormState,
   formData: FormData
 ) {
@@ -95,6 +98,7 @@ export async function createWarningBoardInput(
     detailsInfo,
   } = validatedFields.data;
   console.log(
+    officerName,
     ch,
     status,
     statusInfo,
@@ -111,6 +115,7 @@ export async function createWarningBoardInput(
 }
 
 export async function createKMPostInput(
+  officerName: string,
   prevState: KMPostFormState,
   formData: FormData
 ) {
@@ -141,6 +146,7 @@ export async function createKMPostInput(
     detailsInfo,
   } = validatedFields.data;
   console.log(
+    officerName,
     ch,
     status,
     statusInfo,
@@ -155,6 +161,7 @@ export async function createKMPostInput(
 }
 
 export async function createOFCMarkerInput(
+  officerName: string,
   prevState: OFCMarkerFormState,
   formData: FormData
 ) {
@@ -185,6 +192,7 @@ export async function createOFCMarkerInput(
     detailsInfo,
   } = validatedFields.data;
   console.log(
+    officerName,
     ch,
     status,
     statusInfo,
@@ -199,6 +207,7 @@ export async function createOFCMarkerInput(
 }
 
 export async function createTurningMarkerInput(
+  officerName: string,
   prevState: TurningMarkerFormState,
   formData: FormData
 ) {
@@ -229,6 +238,7 @@ export async function createTurningMarkerInput(
     detailsInfo,
   } = validatedFields.data;
   console.log(
+    officerName,
     ch,
     status,
     statusInfo,
@@ -243,6 +253,7 @@ export async function createTurningMarkerInput(
 }
 
 export async function createCautionBoardInput(
+  officerName: string,
   prevState: CautionBoardFormState,
   formData: FormData
 ) {
@@ -273,6 +284,7 @@ export async function createCautionBoardInput(
     detailsInfo,
   } = validatedFields.data;
   console.log(
+    officerName,
     ch,
     status,
     statusInfo,
@@ -287,6 +299,7 @@ export async function createCautionBoardInput(
 }
 
 export async function createROUMarkerInput(
+  officerName: string,
   prevState: ROUMarkerFormState,
   formData: FormData
 ) {
@@ -317,6 +330,7 @@ export async function createROUMarkerInput(
     detailsInfo,
   } = validatedFields.data;
   console.log(
+    officerName,
     ch,
     status,
     statusInfo,

@@ -1,6 +1,7 @@
 "use client";
 
 import { useFormState } from "react-dom";
+import { notFound, useSearchParams } from "next/navigation";
 
 import { typeOfTlps } from "@/app/lib/constant-data";
 import { createTLPInput } from "@/app/lib/actions";
@@ -8,7 +9,17 @@ import RadioInput from "../inputs/radio";
 
 const TLPForm = () => {
   const initialState: any = { message: null, errors: {} };
-  const [state, formAction] = useFormState(createTLPInput, initialState);
+
+  const searchParams = useSearchParams();
+  const officerName = searchParams.get("officer") || "";
+
+  const createTLPInputWithOfficer = createTLPInput.bind(null, officerName);
+  const [state, formAction] = useFormState(
+    createTLPInputWithOfficer,
+    initialState
+  );
+
+  if (officerName === "") return notFound();
 
   return (
     <form
