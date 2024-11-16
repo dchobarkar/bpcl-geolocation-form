@@ -1,14 +1,13 @@
-import { useActionState } from "react";
+"use client";
+
+import { useFormState } from "react-dom";
 
 import { createROUMarkerInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const ROUMarkerForm = () => {
   const initialState: any = { message: null, errors: {} };
-  const [state, formAction] = useActionState(
-    createROUMarkerInput,
-    initialState
-  );
+  const [state, formAction] = useFormState(createROUMarkerInput, initialState);
 
   return (
     <form

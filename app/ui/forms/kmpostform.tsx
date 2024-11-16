@@ -1,11 +1,13 @@
-import { useActionState } from "react";
+"use client";
+
+import { useFormState } from "react-dom";
 
 import { createKMPostInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const KMPostForm = () => {
   const initialState: any = { message: null, errors: {} };
-  const [state, formAction] = useActionState(createKMPostInput, initialState);
+  const [state, formAction] = useFormState(createKMPostInput, initialState);
 
   return (
     <form

@@ -1,11 +1,12 @@
-import { useActionState } from "react";
+"use client";
+import { useFormState } from "react-dom";
 
 import { createCautionBoardInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const CautionBoardForm = () => {
   const initialState: any = { message: null, errors: {} };
-  const [state, formAction] = useActionState(
+  const [state, formAction] = useFormState(
     createCautionBoardInput,
     initialState
   );

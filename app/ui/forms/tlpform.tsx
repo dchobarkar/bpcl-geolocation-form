@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useFormState } from "react-dom";
 
 import { typeOfTlps } from "@/app/lib/constant-data";
 import { createTLPInput } from "@/app/lib/actions";
@@ -8,7 +8,7 @@ import RadioInput from "../inputs/radio";
 
 const TLPForm = () => {
   const initialState: any = { message: null, errors: {} };
-  const [state, formAction] = useActionState(createTLPInput, initialState);
+  const [state, formAction] = useFormState(createTLPInput, initialState);
 
   return (
     <form
@@ -35,14 +35,14 @@ const TLPForm = () => {
             aria-describedby="ch-error"
           />
         </div>
-        <div id="ch-error" aria-live="polite" aria-atomic="true">
+        {/* <div id="ch-error" aria-live="polite" aria-atomic="true">
           {state.errors?.ch &&
             state.errors.ch.map((error: string) => (
               <p className="mt-2 text-sm text-red-500" key={error}>
                 {error}
               </p>
             ))}
-        </div>
+        </div> */}
 
         <div className="flex flex-col sm:flex-row sm:items-center">
           <label
@@ -70,14 +70,14 @@ const TLPForm = () => {
             ))}
           </select>
         </div>
-        <div id="typeOfTlp-error" aria-live="polite" aria-atomic="true">
+        {/* <div id="typeOfTlp-error" aria-live="polite" aria-atomic="true">
           {state.errors?.typeOfTlp &&
             state.errors.typeOfTlp.map((error: string) => (
               <p className="mt-2 text-sm text-red-500" key={error}>
                 {error}
               </p>
             ))}
-        </div>
+        </div> */}
 
         <RadioInput
           label="Door Condition"

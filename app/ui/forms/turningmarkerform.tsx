@@ -1,11 +1,13 @@
-import { useActionState } from "react";
+"use client";
+
+import { useFormState } from "react-dom";
 
 import { createTurningMarkerInput } from "@/app/lib/actions";
 import RadioInput from "../inputs/radio";
 
 const TurningMarkerForm = () => {
   const initialState: any = { message: null, errors: {} };
-  const [state, formAction] = useActionState(
+  const [state, formAction] = useFormState(
     createTurningMarkerInput,
     initialState
   );
