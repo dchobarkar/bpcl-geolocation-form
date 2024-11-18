@@ -50,12 +50,11 @@ const TLPForm = () => {
           />
         </div>
         <div id="ch-error" aria-live="polite" aria-atomic="true">
-          {state?.errors?.ch &&
-            state.errors.ch.map((error: string) => (
-              <p className="mt-2 text-sm text-red-500" key={error}>
-                {error}
-              </p>
-            ))}
+          {state?.errors?.ch?.map((error: string) => (
+            <p className="mt-2 text-sm text-red-500" key={error}>
+              {error}
+            </p>
+          ))}
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center">
@@ -85,12 +84,11 @@ const TLPForm = () => {
           </select>
         </div>
         <div id="typeOfTlp-error" aria-live="polite" aria-atomic="true">
-          {state?.errors?.typeOfTlp &&
-            state.errors.typeOfTlp.map((error: string) => (
-              <p className="mt-2 text-sm text-red-500" key={error}>
-                {error}
-              </p>
-            ))}
+          {state?.errors?.typeOfTlp?.map((error: string) => (
+            <p className="mt-2 text-sm text-red-500" key={error}>
+              {error}
+            </p>
+          ))}
         </div>
 
         <RadioInput

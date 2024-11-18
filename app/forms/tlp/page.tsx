@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import TLPForm from "@/app/ui/forms/tlpform";
 import Header from "@/app/ui/header";
 
@@ -6,7 +8,9 @@ const Page = () => {
     <main>
       <Header title="TLP Form" />
 
-      <TLPForm />
+      <Suspense>
+        <TLPForm />
+      </Suspense>
     </main>
   );
 };

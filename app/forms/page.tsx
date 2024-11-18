@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import FormList from "../ui/formList";
 
 export default function LandingPage() {
@@ -8,7 +10,9 @@ export default function LandingPage() {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <FormList />
+        <Suspense>
+          <FormList />
+        </Suspense>
       </div>
     </section>
   );

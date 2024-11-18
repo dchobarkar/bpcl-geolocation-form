@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import LocationForm from "./ui/forms/locationform";
 import OfficerNameForm from "./ui/forms/officernameform";
 
@@ -17,7 +19,9 @@ const LandingPage = () => {
           Select Officer Name
         </h2>
 
-        <OfficerNameForm />
+        <Suspense>
+          <OfficerNameForm />
+        </Suspense>
       </section>
     </div>
   );

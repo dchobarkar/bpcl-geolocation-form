@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import TurningMarkerForm from "@/app/ui/forms/turningmarkerform";
 import Header from "@/app/ui/header";
 
@@ -6,7 +8,9 @@ const Page = () => {
     <main>
       <Header title="Turning Marker Form" />
 
-      <TurningMarkerForm />
+      <Suspense>
+        <TurningMarkerForm />
+      </Suspense>
     </main>
   );
 };

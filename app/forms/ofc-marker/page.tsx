@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import OFCMarkerForm from "@/app/ui/forms/ofcmarkerform";
 import Header from "@/app/ui/header";
 
@@ -6,7 +8,9 @@ const Page = () => {
     <main>
       <Header title="OFC Marker Form" />
 
-      <OFCMarkerForm />
+      <Suspense>
+        <OFCMarkerForm />
+      </Suspense>
     </main>
   );
 };

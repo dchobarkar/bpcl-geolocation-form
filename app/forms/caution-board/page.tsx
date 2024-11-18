@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import CautionBoardForm from "@/app/ui/forms/cautionboardform";
 import Header from "@/app/ui/header";
 
@@ -6,7 +8,9 @@ const Page = () => {
     <main>
       <Header title="Caution Board Form" />
 
-      <CautionBoardForm />
+      <Suspense>
+        <CautionBoardForm />
+      </Suspense>
     </main>
   );
 };

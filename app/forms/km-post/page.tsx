@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import KMPostForm from "@/app/ui/forms/kmpostform";
 import Header from "@/app/ui/header";
 
@@ -6,7 +8,9 @@ const Page = () => {
     <main>
       <Header title="KM Post Form" />
 
-      <KMPostForm />
+      <Suspense>
+        <KMPostForm />
+      </Suspense>
     </main>
   );
 };

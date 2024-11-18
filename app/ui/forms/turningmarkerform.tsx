@@ -51,7 +51,7 @@ const TurningMarkerForm = () => {
           />
         </div>
         <div id="ch-error" aria-live="polite" aria-atomic="true">
-          {state?.errors?.ch.map((error: string) => (
+          {state?.errors?.ch?.map((error: string) => (
             <p className="mt-2 text-sm text-red-500" key={error}>
               {error}
             </p>
@@ -87,7 +87,7 @@ const TurningMarkerForm = () => {
           />
         </div>
         <div id="statusInfo-error" aria-live="polite" aria-atomic="true">
-          {state?.errors?.statusInfo.map((error: string) => (
+          {state?.errors?.statusInfo?.map((error: string) => (
             <p className="mt-2 text-sm text-red-500" key={error}>
               {error}
             </p>
