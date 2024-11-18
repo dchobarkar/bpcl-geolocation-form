@@ -7,6 +7,8 @@ type TLPFormState = {
     foundationStatus?: string[];
     detailsStatus?: string[];
     circuitDiagram?: string[];
+    latitude?: string[];
+    logitude?: string[];
   };
   message?: string | null;
 };
@@ -23,6 +25,8 @@ type WarningBoardFormState = {
     details?: string[];
     detailsStatus?: string[];
     detailsInfo?: string[];
+    latitude?: string[];
+    logitude?: string[];
   };
   message?: string | null;
 };
@@ -37,6 +41,8 @@ type KMPostFormState = {
     foundationStatus?: string[];
     detailsStatus?: string[];
     detailsInfo?: string[];
+    latitude?: string[];
+    logitude?: string[];
   };
   message?: string | null;
 };
@@ -51,6 +57,8 @@ type OFCMarkerFormState = {
     foundationStatus?: string[];
     detailsStatus?: string[];
     detailsInfo?: string[];
+    latitude?: string[];
+    logitude?: string[];
   };
   message?: string | null;
 };
@@ -65,6 +73,8 @@ type TurningMarkerFormState = {
     foundationStatus?: string[];
     detailsStatus?: string[];
     detailsInfo?: string[];
+    latitude?: string[];
+    logitude?: string[];
   };
   message?: string | null;
 };
@@ -79,6 +89,8 @@ type CautionBoardFormState = {
     foundationStatus?: string[];
     detailsStatus?: string[];
     detailsInfo?: string[];
+    latitude?: string[];
+    logitude?: string[];
   };
   message?: string | null;
 };
@@ -93,6 +105,8 @@ type ROUMarkerFormState = {
     foundationStatus?: string[];
     detailsStatus?: string[];
     detailsInfo?: string[];
+    latitude?: string[];
+    logitude?: string[];
   };
   message?: string | null;
 };

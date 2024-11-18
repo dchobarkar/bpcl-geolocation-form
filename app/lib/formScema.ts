@@ -22,6 +22,8 @@ const TLPFormSchema = z.object({
   circuitDiagram: z.enum(["available", "notAvailable"], {
     invalid_type_error: "Please select an appropriate option.",
   }),
+  latitude: z.string(),
+  logitude: z.string(),
 });
 
 const WarningBoardFormSchema = z.object({
@@ -52,6 +54,8 @@ const WarningBoardFormSchema = z.object({
     invalid_type_error: "Please select an appropriate option.",
   }),
   detailsInfo: z.string(),
+  latitude: z.string(),
+  logitude: z.string(),
 });
 
 const KMPostFormSchema = z.object({
@@ -75,6 +79,8 @@ const KMPostFormSchema = z.object({
     invalid_type_error: "Please select an appropriate option.",
   }),
   detailsInfo: z.string(),
+  latitude: z.string(),
+  logitude: z.string(),
 });
 
 const OFCMarkerFormSchema = z.object({
@@ -98,6 +104,8 @@ const OFCMarkerFormSchema = z.object({
     invalid_type_error: "Please select an appropriate option.",
   }),
   detailsInfo: z.string(),
+  latitude: z.string(),
+  logitude: z.string(),
 });
 
 const TurningMarkerFormSchema = z.object({
@@ -121,6 +129,8 @@ const TurningMarkerFormSchema = z.object({
     invalid_type_error: "Please select an appropriate option.",
   }),
   detailsInfo: z.string(),
+  latitude: z.string(),
+  logitude: z.string(),
 });
 
 const CautionBoardFormSchema = z.object({
@@ -144,6 +154,8 @@ const CautionBoardFormSchema = z.object({
     invalid_type_error: "Please select an appropriate option.",
   }),
   detailsInfo: z.string(),
+  latitude: z.string(),
+  logitude: z.string(),
 });
 
 const ROUMarkerFormSchema = z.object({
@@ -167,6 +179,8 @@ const ROUMarkerFormSchema = z.object({
     invalid_type_error: "Please select an appropriate option.",
   }),
   detailsInfo: z.string(),
+  latitude: z.string(),
+  logitude: z.string(),
 });
 
 export {

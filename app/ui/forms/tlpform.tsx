@@ -12,6 +12,8 @@ const TLPForm = () => {
 
   const searchParams = useSearchParams();
   const officerName = searchParams.get("officer") || "";
+  const latitude = searchParams.get("latitude") || "";
+  const logitude = searchParams.get("logitude") || "";
 
   const createTLPInputWithOfficer = createTLPInput.bind(null, officerName);
   const [state, formAction] = useFormState(
@@ -19,7 +21,8 @@ const TLPForm = () => {
     initialState
   );
 
-  if (officerName === "") return notFound();
+  if (officerName === "" || latitude === "" || logitude === "")
+    return notFound();
 
   return (
     <form
@@ -46,14 +49,14 @@ const TLPForm = () => {
             aria-describedby="ch-error"
           />
         </div>
-        {/* <div id="ch-error" aria-live="polite" aria-atomic="true">
-          {state.errors?.ch &&
+        <div id="ch-error" aria-live="polite" aria-atomic="true">
+          {state?.errors?.ch &&
             state.errors.ch.map((error: string) => (
               <p className="mt-2 text-sm text-red-500" key={error}>
                 {error}
               </p>
             ))}
-        </div> */}
+        </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center">
           <label
@@ -81,14 +84,14 @@ const TLPForm = () => {
             ))}
           </select>
         </div>
-        {/* <div id="typeOfTlp-error" aria-live="polite" aria-atomic="true">
-          {state.errors?.typeOfTlp &&
+        <div id="typeOfTlp-error" aria-live="polite" aria-atomic="true">
+          {state?.errors?.typeOfTlp &&
             state.errors.typeOfTlp.map((error: string) => (
               <p className="mt-2 text-sm text-red-500" key={error}>
                 {error}
               </p>
             ))}
-        </div> */}
+        </div>
 
         <RadioInput
           label="Door Condition"
@@ -98,7 +101,7 @@ const TLPForm = () => {
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
           ]}
-          errors={state.errors && state.errors?.doorCondition}
+          errors={state?.errors && state.errors?.doorCondition}
         />
 
         <RadioInput
@@ -110,7 +113,7 @@ const TLPForm = () => {
             { value: "minorRusted", label: "Minor Rusted" },
             { value: "heavyRusted", label: "Heavy Rusted" },
           ]}
-          errors={state.errors && state.errors?.rustingCondition}
+          errors={state?.errors && state.errors?.rustingCondition}
         />
 
         <RadioInput
@@ -121,7 +124,7 @@ const TLPForm = () => {
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
           ]}
-          errors={state.errors && state.errors?.foundationStatus}
+          errors={state?.errors && state.errors?.foundationStatus}
         />
 
         <RadioInput
@@ -132,7 +135,7 @@ const TLPForm = () => {
             { value: "available", label: "Available" },
             { value: "notAvailable", label: "Not Available" },
           ]}
-          errors={state.errors && state.errors?.detailsStatus}
+          errors={state?.errors && state.errors?.detailsStatus}
         />
 
         <RadioInput
@@ -143,8 +146,12 @@ const TLPForm = () => {
             { value: "available", label: "Available" },
             { value: "notAvailable", label: "Not Available" },
           ]}
-          errors={state.errors && state.errors?.circuitDiagram}
+          errors={state?.errors && state.errors?.circuitDiagram}
         />
+
+        {/* Hidden Inputs for Geolocation */}
+        <input type="hidden" name="latitude" value={latitude} />
+        <input type="hidden" name="logitude" value={logitude} />
 
         <div className="mt-2 flex justify-end">
           <button

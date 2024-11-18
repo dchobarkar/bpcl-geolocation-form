@@ -11,6 +11,8 @@ const WarningBoardForm = () => {
 
   const searchParams = useSearchParams();
   const officerName = searchParams.get("officer") || "";
+  const latitude = searchParams.get("latitude") || "";
+  const logitude = searchParams.get("logitude") || "";
 
   const createWarningBoardInputWithOfficer = createWarningBoardInput.bind(
     null,
@@ -21,7 +23,8 @@ const WarningBoardForm = () => {
     initialState
   );
 
-  if (officerName === "") return notFound();
+  if (officerName === "" || latitude === "" || logitude === "")
+    return notFound();
 
   return (
     <form
@@ -36,7 +39,6 @@ const WarningBoardForm = () => {
           >
             CH
           </label>
-
           <input
             required
             id="ch"
@@ -49,12 +51,11 @@ const WarningBoardForm = () => {
           />
         </div>
         <div id="ch-error" aria-live="polite" aria-atomic="true">
-          {state.errors?.ch &&
-            state.errors.ch.map((error: string) => (
-              <p className="mt-2 text-sm text-red-500" key={error}>
-                {error}
-              </p>
-            ))}
+          {state?.errors?.ch.map((error: string) => (
+            <p className="mt-2 text-sm text-red-500" key={error}>
+              {error}
+            </p>
+          ))}
         </div>
 
         <RadioInput
@@ -65,7 +66,7 @@ const WarningBoardForm = () => {
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
           ]}
-          errors={state.errors && state.errors?.status}
+          errors={state?.errors?.status}
         />
 
         {/* If Status not ok, then additional information should be shown */}
@@ -76,7 +77,6 @@ const WarningBoardForm = () => {
           >
             Additional Information:
           </label>
-
           <input
             id="statusInfo"
             name="statusInfo"
@@ -87,12 +87,11 @@ const WarningBoardForm = () => {
           />
         </div>
         <div id="statusInfo-error" aria-live="polite" aria-atomic="true">
-          {state.errors?.statusInfo &&
-            state.errors.statusInfo.map((error: string) => (
-              <p className="mt-2 text-sm text-red-500" key={error}>
-                {error}
-              </p>
-            ))}
+          {state?.errors?.statusInfo.map((error: string) => (
+            <p className="mt-2 text-sm text-red-500" key={error}>
+              {error}
+            </p>
+          ))}
         </div>
 
         <RadioInput
@@ -103,7 +102,7 @@ const WarningBoardForm = () => {
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
           ]}
-          errors={state.errors && state.errors?.condition}
+          errors={state?.errors?.condition}
         />
 
         <RadioInput
@@ -115,7 +114,7 @@ const WarningBoardForm = () => {
             { value: "minorRusted", label: "Minor Rusted" },
             { value: "heavyRusted", label: "Heavy Rusted" },
           ]}
-          errors={state.errors && state.errors?.rustingCondition}
+          errors={state?.errors?.rustingCondition}
         />
 
         <RadioInput
@@ -126,7 +125,7 @@ const WarningBoardForm = () => {
             { value: "ok", label: "OK" },
             { value: "notOk", label: "Not OK" },
           ]}
-          errors={state.errors && state.errors?.foundationStatus}
+          errors={state?.errors?.foundationStatus}
         />
 
         <RadioInput
@@ -138,7 +137,7 @@ const WarningBoardForm = () => {
             { value: "riverCrossing", label: "River Crossing" },
             { value: "railwayCrossing", label: "Railway Crossing" },
           ]}
-          errors={state.errors && state.errors?.typeOfWarningBoard}
+          errors={state?.errors?.typeOfWarningBoard}
         />
 
         <div className="mt-2">
@@ -148,7 +147,6 @@ const WarningBoardForm = () => {
           >
             Details:
           </label>
-
           <input
             id="details"
             name="details"
@@ -158,12 +156,11 @@ const WarningBoardForm = () => {
           />
         </div>
         <div id="details-error" aria-live="polite" aria-atomic="true">
-          {state.errors?.details &&
-            state.errors.details.map((error: string) => (
-              <p className="mt-2 text-sm text-red-500" key={error}>
-                {error}
-              </p>
-            ))}
+          {state?.errors?.details.map((error: string) => (
+            <p className="mt-2 text-sm text-red-500" key={error}>
+              {error}
+            </p>
+          ))}
         </div>
 
         <RadioInput
@@ -175,7 +172,7 @@ const WarningBoardForm = () => {
             { value: "ok", label: "OK" },
             { value: "notAvailable", label: "Not Available" },
           ]}
-          errors={state.errors && state.errors?.detailsStatus}
+          errors={state?.errors?.detailsStatus}
         />
 
         {/* If Details Status not ok, then additional information should be shown */}
@@ -186,7 +183,6 @@ const WarningBoardForm = () => {
           >
             Additional Information:
           </label>
-
           <input
             id="detailsInfo"
             name="detailsInfo"
@@ -197,13 +193,16 @@ const WarningBoardForm = () => {
           />
         </div>
         <div id="detailsInfo-error" aria-live="polite" aria-atomic="true">
-          {state.errors?.detailsInfo &&
-            state.errors.detailsInfo.map((error: string) => (
-              <p className="mt-2 text-sm text-red-500" key={error}>
-                {error}
-              </p>
-            ))}
+          {state?.errors?.detailsInfo.map((error: string) => (
+            <p className="mt-2 text-sm text-red-500" key={error}>
+              {error}
+            </p>
+          ))}
         </div>
+
+        {/* Hidden Inputs for Geolocation */}
+        <input type="hidden" name="latitude" value={latitude} />
+        <input type="hidden" name="logitude" value={logitude} />
 
         <div className="mt-2 flex justify-end">
           <button

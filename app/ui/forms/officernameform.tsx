@@ -2,11 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 import { officerNames } from "@/app/lib/constant-data";
 
 const OfficerNameForm = () => {
   const [selectedOfficer, setSelectedOfficer] = useState("");
+
+  const searchParams = useSearchParams();
+  const queryString = searchParams.toString();
 
   return (
     <>
@@ -30,7 +34,7 @@ const OfficerNameForm = () => {
 
       {selectedOfficer !== "" ? (
         <Link
-          href={`/forms?officer=${selectedOfficer}`}
+          href={`/forms?officer=${selectedOfficer}&${queryString}`}
           className="w-full flex justify-center bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
         >
           Continue

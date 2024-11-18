@@ -32,6 +32,8 @@ export async function createTLPInput(
     foundationStatus: formData.get("foundationStatus"),
     detailsStatus: formData.get("detailsStatus"),
     circuitDiagram: formData.get("circuitDiagram"),
+    latitude: formData.get("latitude"),
+    logitude: formData.get("logitude"),
   });
   if (!validatedFields.success)
     return {
@@ -47,6 +49,8 @@ export async function createTLPInput(
     foundationStatus,
     detailsStatus,
     circuitDiagram,
+    latitude,
+    logitude,
   } = validatedFields.data;
   console.log(
     officerName,
@@ -56,10 +60,10 @@ export async function createTLPInput(
     rustingCondition,
     foundationStatus,
     detailsStatus,
-    circuitDiagram
+    circuitDiagram,
+    latitude,
+    logitude
   );
-
-  return formData;
 }
 
 export async function createWarningBoardInput(
@@ -78,6 +82,8 @@ export async function createWarningBoardInput(
     details: formData.get("details"),
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
+    latitude: formData.get("latitude"),
+    logitude: formData.get("logitude"),
   });
   if (!validatedFields.success)
     return {
@@ -96,6 +102,8 @@ export async function createWarningBoardInput(
     details,
     detailsStatus,
     detailsInfo,
+    logitude,
+    latitude,
   } = validatedFields.data;
   console.log(
     officerName,
@@ -108,10 +116,10 @@ export async function createWarningBoardInput(
     typeOfWarningBoard,
     details,
     detailsStatus,
-    detailsInfo
+    detailsInfo,
+    latitude,
+    logitude
   );
-
-  return formData;
 }
 
 export async function createKMPostInput(
@@ -128,6 +136,8 @@ export async function createKMPostInput(
     foundationStatus: formData.get("foundationStatus"),
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
+    latitude: formData.get("latitude"),
+    logitude: formData.get("logitude"),
   });
   if (!validatedFields.success)
     return {
@@ -144,6 +154,8 @@ export async function createKMPostInput(
     foundationStatus,
     detailsStatus,
     detailsInfo,
+    latitude,
+    logitude,
   } = validatedFields.data;
   console.log(
     officerName,
@@ -154,10 +166,10 @@ export async function createKMPostInput(
     rustingCondition,
     foundationStatus,
     detailsStatus,
-    detailsInfo
+    detailsInfo,
+    latitude,
+    logitude
   );
-
-  return formData;
 }
 
 export async function createOFCMarkerInput(
@@ -174,6 +186,8 @@ export async function createOFCMarkerInput(
     foundationStatus: formData.get("foundationStatus"),
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
+    latitude: formData.get("latitude"),
+    logitude: formData.get("logitude"),
   });
   if (!validatedFields.success)
     return {
@@ -190,6 +204,8 @@ export async function createOFCMarkerInput(
     foundationStatus,
     detailsStatus,
     detailsInfo,
+    latitude,
+    logitude,
   } = validatedFields.data;
   console.log(
     officerName,
@@ -200,10 +216,10 @@ export async function createOFCMarkerInput(
     rustingCondition,
     foundationStatus,
     detailsStatus,
-    detailsInfo
+    detailsInfo,
+    latitude,
+    logitude
   );
-
-  return formData;
 }
 
 export async function createTurningMarkerInput(
@@ -220,6 +236,8 @@ export async function createTurningMarkerInput(
     foundationStatus: formData.get("foundationStatus"),
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
+    latitude: formData.get("latitude"),
+    logitude: formData.get("logitude"),
   });
   if (!validatedFields.success)
     return {
@@ -236,6 +254,8 @@ export async function createTurningMarkerInput(
     foundationStatus,
     detailsStatus,
     detailsInfo,
+    latitude,
+    logitude,
   } = validatedFields.data;
   console.log(
     officerName,
@@ -246,10 +266,10 @@ export async function createTurningMarkerInput(
     rustingCondition,
     foundationStatus,
     detailsStatus,
-    detailsInfo
+    detailsInfo,
+    latitude,
+    logitude
   );
-
-  return formData;
 }
 
 export async function createCautionBoardInput(
@@ -266,6 +286,8 @@ export async function createCautionBoardInput(
     foundationStatus: formData.get("foundationStatus"),
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
+    latitude: formData.get("latitude"),
+    logitude: formData.get("logitude"),
   });
   if (!validatedFields.success)
     return {
@@ -282,6 +304,8 @@ export async function createCautionBoardInput(
     foundationStatus,
     detailsStatus,
     detailsInfo,
+    latitude,
+    logitude,
   } = validatedFields.data;
   console.log(
     officerName,
@@ -292,10 +316,10 @@ export async function createCautionBoardInput(
     rustingCondition,
     foundationStatus,
     detailsStatus,
-    detailsInfo
+    detailsInfo,
+    latitude,
+    logitude
   );
-
-  return formData;
 }
 
 export async function createROUMarkerInput(
@@ -312,6 +336,8 @@ export async function createROUMarkerInput(
     foundationStatus: formData.get("foundationStatus"),
     detailsStatus: formData.get("detailsStatus"),
     detailsInfo: formData.get("detailsInfo"),
+    latitude: formData.get("latitude"),
+    logitude: formData.get("logitude"),
   });
   if (!validatedFields.success)
     return {
@@ -328,6 +354,8 @@ export async function createROUMarkerInput(
     foundationStatus,
     detailsStatus,
     detailsInfo,
+    latitude,
+    logitude,
   } = validatedFields.data;
   console.log(
     officerName,
@@ -338,8 +366,8 @@ export async function createROUMarkerInput(
     rustingCondition,
     foundationStatus,
     detailsStatus,
-    detailsInfo
+    detailsInfo,
+    latitude,
+    logitude
   );
-
-  return formData;
 }
